@@ -1,0 +1,65 @@
+--membuat procedure untuk membuat pola pertama
+CREATE OR REPLACE PROCEDURE pola1 AS
+    i NUMBER(5); --menampung nilai i (baris)
+    j NUMBER(5); --menampung nilai j (kolom)
+BEGIN
+    FOR i in 0..9 LOOP --melakukan perulangan nilai i dari 0 sampai dengan 9
+      FOR j in 0..9 LOOP --melakukan perulangan j dari 0 sampai 9
+        IF (i=j OR (i+j)=9) THEN --kondisi jika nilai i = j atau nilai i + j = 9 maka print 'X'
+            DBMS_OUTPUT.PUT('X');
+            ELSE --jika tidak memenuhi kondisi maka print '*'
+            DBMS_OUTPUT.PUT('*');
+        END IF; --mengakhiri kondisi 
+      END LOOP; --mengakhiri perulangan
+      DBMS_OUTPUT.PUT_LINE('');
+    END LOOP;--mengakhiri perulangan
+    DBMS_OUTPUT.PUT_LINE('');
+END;
+
+--memanggil dan menjalankan pattern1 / pola pertama
+EXECUTE pola1; 
+
+--membuat procedure untuk membuat pola kedua
+CREATE OR REPLACE PROCEDURE pola2 AS
+    i NUMBER(5); --menampung nilai i (baris)
+    j NUMBER(5); --menampung nilai j (kolom)
+BEGIN
+    FOR i in 1..10 LOOP --melakukan perulangan nilai i dari 1 sampai 10
+      FOR j in 1..10 LOOP --melakukan perulangan nilai i dari 1 sampai 10
+        IF (i <= j) THEN --kondisi dimana jika nilai i <= j maka akan dijalankan
+            IF (i*j < 100) THEN --kondisi dimana hanya akan menjalankan jika nilai i*j < 100
+                DBMS_OUTPUT.PUT(TO_CHAR(i * j, '00')); --menampilkan i*j dengan format '00'
+            ELSE DBMS_OUTPUT.PUT(TO_CHAR(i * i, '000')); --jika kondisi tidak terpenuhi maka akan dijalankan menampilkan i*j dengan format tiga digit '000'
+            END IF;
+        END IF;
+      END LOOP;
+      DBMS_OUTPUT.PUT_LINE(' ');
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE(' ');
+END;
+
+--menjalankan pola kedua
+EXECUTE pola2; 
+
+--membuat procedure untuk membuat pola ketiga
+CREATE OR REPLACE PROCEDURE pola3 AS
+    i NUMBER(5); --untuk menampung nilai i (baris)
+    j NUMBER(5); --untuk menampung nilai j (kolom)
+BEGIN
+    FOR i in 1..10 LOOP --melakukan perulangan nilai i dari 1 sampai 10
+      FOR j in 1..10 LOOP --melakukan perulangan nilai i dari 1 sampai 10
+        IF (i>=j) THEN --kondisi dimana hanya akan menjalankan jika nilai i >= j
+            IF (i * j MOD 2 <> 0) THEN --kondisi dimana jika i*j mod 2 ? 0 atau i*j merupakan bilangan ganjil 
+            DBMS_OUTPUT.PUT(' 1'); --maka print 1
+            ELSE -- kondisi jika tidak terpenuhi maka print '0'
+            DBMS_OUTPUT.PUT(' 0');
+            END IF;
+        END IF;
+      END LOOP;
+      DBMS_OUTPUT.PUT_LINE('');
+    END LOOP;
+    DBMS_OUTPUT.PUT_LINE('');
+END;
+
+--menjalankan pola ketiga
+EXECUTE pola3; 
