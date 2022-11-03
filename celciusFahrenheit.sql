@@ -27,4 +27,4 @@ END;
 
 EXECUTE celciusTofahrenheit(32);  -- untuk menjalankan procedure yang mengubah celcius ke fahrenheit yang dimana, celcius adalah sebagai parameter.
 EXECUTE celciusToreamur(32); --untuk menjalankan procedure yang mengubah celcius ke reamur, celcius adalah sebagai parameter.
-EXECUTE celci_kelvin(32); --untuk memamenjalankan procedure yang mengubah celcius ke kelvin,celcius adalah sebagai parameter
+EXECUTE celciusTokelvin(32); --untuk memamenjalankan procedure yang mengubah celcius ke kelvin,celcius adalah sebagai parameter
